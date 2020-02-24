@@ -3,4 +3,4 @@
 	url = https://github.com/Samuel-Tyler/fast_ber.git
 [submodule "3rd_party/abseil-cpp"]
 	path = 3rd_party/abseil-cpp
-	url = https://github.com:abseil/abseil-cpp.git
+	url = https://github.com/abseil/abseil-cpp.git
