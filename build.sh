@@ -15,7 +15,7 @@ cmake ../3rd_party/fast_ber -DCMAKE_INSTALL_PREFIX=../install -DSKIP_TESTING=tru
 cmake --build . --target install
 cd ..
 
-# Build and test ldap3_decoder
+# Build and test ldap3_decoder, provide install path to locate fast_ber and abseil
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=../install
 cmake --build .
