@@ -1,29 +1,34 @@
 # fast_ber_ldap3 [![Travis status](https://travis-ci.org/Samuel-Tyler/fast_ber_ldap3.svg?branch=master)](https://travis-ci.org/Samuel-Tyler/fast_ber_ldap3) ![C++11](https://img.shields.io/badge/language-C%2B%2B11-green.svg) ![C++14](https://img.shields.io/badge/language-C%2B%2B14-green.svg) ![C++17](https://img.shields.io/badge/language-C%2B%2B17-green.svg) ![C++20](https://img.shields.io/badge/language-C%2B%2B20-green.svg)
 Decode and inspect ldap3 certificates. A sample application demonstrating use of `fast_ber` with `cmake`.
 
-
 ## Usage
-`fast_ber_ldap3` provides an application `ldap3_decoder` to decode and inspect the contents of a BER encoded ldap3 certificate. This application has been tested against the test certificates provided in the [PROTOS Test Suite](https://www.ee.oulu.fi/roles/ouspg/PROTOS_Test-Suite_c06-ldapv3).
+`fast_ber_ldap3` provides two applications, `ldap3_encoder` and `ldap3_decoder`.
+
+`ldap3_encoder` creates an ldap3 certificate with the parameters defined in `ldap3_encoder.cpp`.
+`ldap3_decoder` can be used to decode and inspect the contents of a BER encoded ldap3 certificate. This application has been tested against the test certificates provided in the [PROTOS Test Suite](https://www.ee.oulu.fi/roles/ouspg/PROTOS_Test-Suite_c06-ldapv3).
 
 ```
-$ ./build/ldap3_decoder testfiles/00000004 | jq .
+~/git/fast_ber_ldap3$ ./build/ldap3_encoder test.ber
+~/git/fast_ber_ldap3$ ./build/ldap3_decoder test.ber | jq .
 {
   "messageID": 1,
   "protocolOp": {
-    "baseObject": "",
+    "baseObject": "ldapv3",
     "scope": "wholeSubtree",
     "derefAliases": "neverDerefAliases",
-    "sizeLimit": 0,
-    "timeLimit": 0,
+    "sizeLimit": 10,
+    "timeLimit": 20,
     "typesOnly": false,
-    "filter": {
-      "attributeDesc": "uid",
-      "assertionValue": "Admin"
-    },
-    "attributes": []
+    "filter": "description",
+    "attributes": [
+      "one",
+      "two",
+      "three"
+    ]
   },
   "controls": null
 }
+
 ```
 
 ## fast_ber CMake
@@ -46,7 +51,7 @@ target_include_directories(ldap3_decoder PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 target_link_libraries(ldap3_decoder fast_ber::fast_ber_lib)
 ```
 
-As `find_package` is used `fast_ber` and `abseil` must exist in the install location so they can be resolved when running cmake. 
+As `find_package` is used `fast_ber` and `abseil` must exist in the install location so they can be resolved when running `cmake`.
 
 Here are a set of commands which create an install directory then build `fast_ber` and `abseil` inside. Once this has completed the install folder will contain the header files, binaries and static libraries needed to create a project using `fast_ber`.
 
