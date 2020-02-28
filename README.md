@@ -1,4 +1,4 @@
-# fast_ber_ldap3 [![Travis status](https://travis-ci.org/Samuel-Tyler/fast_ber_ldap3.svg?branch=master)](https://travis-ci.org/Samuel-Tyler/fast_ber_ldap3) ![C++11](https://img.shields.io/badge/language-C%2B%2B11-green.svg) ![C++14](https://img.shields.io/badge/language-C%2B%2B14-green.svg) ![C++17](https://img.shields.io/badge/language-C%2B%2B17-green.svg) ![C++20](https://img.shields.io/badge/language-C%2B%2B20-green.svg)
+# fast_ber_ldap3 [![Travis status](https://travis-ci.com/Samuel-Tyler/fast_ber_ldap3.svg?branch=master)](https://travis-ci.com/Samuel-Tyler/fast_ber_ldap3) ![C++11](https://img.shields.io/badge/language-C%2B%2B11-green.svg) ![C++14](https://img.shields.io/badge/language-C%2B%2B14-green.svg) ![C++17](https://img.shields.io/badge/language-C%2B%2B17-green.svg) ![C++20](https://img.shields.io/badge/language-C%2B%2B20-green.svg)
 Decode and inspect ldap3 certificates. A sample application demonstrating use of `fast_ber` with `cmake`.
 
 ## Usage
