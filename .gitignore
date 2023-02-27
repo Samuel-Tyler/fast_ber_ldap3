@@ -1,4 +1,5 @@
 build
 build_abseil
 build_fast_ber
+build_conan
 install

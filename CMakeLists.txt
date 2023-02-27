@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.0)
 project(fast_ber_ldap3)
 
+# Setup Conan if enabled
+if (EXISTS "${CMAKE_SOURCE_DIR}/conanbuildinfo.cmake")
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+endif()
+
 # Locate dependencies required from install path
-find_package(absl REQUIRED)
-find_package(fast_ber REQUIRED)
+find_package(absl REQUIRED CONFIG)
+find_package(fast_ber REQUIRED CONFIG)
 
 # Generate C++ header files from input ASN.1 file
 fast_ber_generate(${CMAKE_CURRENT_SOURCE_DIR}/src/rfc-4511.asn1 rfc-4511)
